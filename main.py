@@ -61,6 +61,16 @@ def update_users(i):
     entry_liczba_postow.delete(0, END)
     entry_imie.focus()
 
+def show_user_details():
+    i=listbox_lista_obiektow.index(ACTIVE)
+    label_imie_szczegoly_obiektu_wartosc.config(text=users[i]['name'])
+    label_nazwisko_szczegoly_obiektu_wartosc.config(text=users[i]['surname'])
+    label_miejscowosc_szczegoly_obiektu_wartosc.config(text=users[i]['location'])
+    label_posty_szczegoly_obiektu_wartosc.config(text=users[i]['posts'])
+
+
+
+
 
 root = Tk()
 
@@ -85,7 +95,7 @@ label_lista_obiektow.grid(row=0, column=0)
 listbox_lista_obiektow=Listbox(ramka_lista_obiektow)
 listbox_lista_obiektow.grid(row=1, column=0, columnspan=3)
 
-button_poka_szczegoly=Button(ramka_lista_obiektow,text='Pokaż szczegóły')
+button_poka_szczegoly=Button(ramka_lista_obiektow,text='Pokaż szczegóły', command=show_user_details)
 button_poka_szczegoly.grid(row=3, column=0)
 
 button_usun_obiekt=Button(ramka_lista_obiektow,text='Usuń  obiekt', command=remove_user)
